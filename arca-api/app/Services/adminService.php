@@ -19,12 +19,11 @@ class adminService
 
     public function purge_database(array $data)
     {
-        $user = $this->db->findBy('users', 'email', $data['email']);
+        $user = $this->db->findBy('users', 'token', $data['token']);
 
         if (
             !$user ||
-            $user['token'] !== $data['token'] ||
-            !Hash::check($data['passwd'], $user['passwd'])
+            $user['token'] !== $data['token']
         ) {
             return response()->json([
                 'Error' => 'Invalid Credentials'
@@ -40,7 +39,7 @@ class adminService
             );
         }
 
-        $this->db->purge();
+        //$this->db->purge();
 
         return response()->json([
             'message' => 'A database foi pro caralho com sucesso.'
@@ -48,33 +47,26 @@ class adminService
     }
 
     public function promote(array $data)
-    {
-        $user = $this->db->findBy('users', 'email', $data['email']);
-
-        if (
-            !$user ||
-            $user['token'] !== $data['token'] ||
-            !Hash::check($data['passwd'], $user['passwd'])
-        ) {
+    {   
+        $admin = $this->db->findBy('users','token',$data['token']);
+        $target = $this->db->findBy('users', 'email', $data['email']);
+        
+        /* Aqui eu poderia adicionar algum teste pra ver por exemplo se os dados passados
+        possuem um @ ou algo do tipo, pra informar "Digite um email valido" ou algo do tipo. 
+        Mas por enquanto vou deixar apenas o 404 - Not found mesmo */
+        if (!$target){
             return response()->json([
-                'Error' => 'Invalid Credentials'
-            ], 401);
+                'Error' => 'User not Found'
+            ], 404);
         }
 
-        if ($user['role'] !== 'admin') {
+        if ($admin['role'] !== 'admin') {
             return response()->json(
                 [
                     'Error' => 'Unauthorized Credentials'
                 ],
                 403
             );
-        }
-
-        $target = $this->db->findBy('users', 'email', $data['target']['email']);
-        if (!$target) {
-            return response()->json([
-                'Error' => 'Target not found'
-            ], 404);
         }
 
         $this->db->update('users', $target['id'], [

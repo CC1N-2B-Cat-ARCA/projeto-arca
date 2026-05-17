@@ -41,9 +41,7 @@ class AdminController extends Controller {
 
     public function purge(Request $request, adminService $service){
         $data = $request->validate([
-            'email' => ['required'],
             'token' => ['required'],
-            'passwd' => ['required']
         ]);
 
         return $service->purge_database($data);

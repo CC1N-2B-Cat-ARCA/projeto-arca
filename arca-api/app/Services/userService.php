@@ -26,7 +26,7 @@ class userService {
     public function login(array $data){
         $user = $this->db->findBy('users','email',$data['email']);
 
-        if(!$user) {
+        if(!$user || $user['name'] !== $data['name']) {
             return response()->json(['Error:' => 'Invalid Credentials'],401);
         }
 
@@ -39,7 +39,9 @@ class userService {
         $this->db->update('users',$user['id'],$user);
 
         return response()->json([
-            'user' => $user,
+            'user' => $user['name'],
+            'email' => $user['email'],
+            'role' => $user['role'],
             'token' => $user['token']
         ]);
     }
