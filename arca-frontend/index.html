@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="./src/main.js"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>teste API</title>
+</head>
+
+<body>
+    <button id="open-login">Cadastro</button>
+    <div class="login-modal" id="login-modal">
+        <form method="post" class="login-form" id="login-form">
+            <div class="form-example">
+                <label for="name">Digite seu nome:</label>
+                <input type="text" name="name" id="name" placeholder="Seu nome" required />
+            </div>
+            <div class="form-example">
+                <label for="email">Digite seu Email:</label>
+                <input type="email" name="email" id="email" placeholder="example@mail.com" required />
+            </div>
+            <div class="form-example">
+                <label for="passwd">Digite sua senha: </label>
+                <input type="password" name="passwd" id="passwd" placeholder="Sua senha" required />
+            </div>
+            <div class="form-example button-row">
+                <button type="reset">Cancelar</button>
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+    <main></main>
+</body>
+
+</html>

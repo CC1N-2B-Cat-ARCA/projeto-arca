@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin/adminPanel.css">
+    <script type="module" src="../src/admin/adminPanel.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <section class="main">
+            <section class="form-section">
+                <div class="form-header">
+                    <h1>Admin Panel</h1>
+                </div>
+                <div class="options-container">
+                    <div class="profile container" id="user-profile">
+                        <h1>Perfil</h1>
+                        <h2>Nome: <span id="profile-name"></span></h2>
+                        <h2>Email: <span id="profile-email"></span></h2>
+                        <h2>Role: <span id="profile-role"></span></h2>
+                    </div>
+                    <div class="search-user-container container" id="search-user">
+                        <form method="get">
+                            <h2>Buscar usuario</h2>
+                            <input type="text" name="search" placeholder="Email do usuário">
+                            <button type="submit">Buscar</button>
+                        </form>
+
+                        <form method="get">
+                            <h2>Promover Usuario</h2>
+                            <input type="text" name="promote" placeholder="Email do usuário">
+                            <button type="submit">Buscar</button>
+                        </form>
+                        <div class="button-container">
+                            <button id="search-all-users">Usuarios</button>
+                            <button id="purge-button">Purge Database</button>
+                        </div>
+                    </div>
+                    <div class="search-admin-container container" id="search-admin">
+
+                    </div>
+                </div>
+            </section>
+            <section class="output" id="output">
+                <h1>Output</h1>
+                <div class="card-container" id="card-container">
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                    <div class="card"></div>
+                </div>
+            </section>
+        </section>
+
+
+    </main>
+</body>
+
+</html>

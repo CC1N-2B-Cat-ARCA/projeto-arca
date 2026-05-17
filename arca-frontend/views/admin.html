@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/admin.css">
+    <script type="module" src="../src/admin/main.js"></script>
+    <title>Admin Page</title>
+</head>
+<body>
+    <div class="login-modal" id="login-modal">
+        <form method="post" class="login-form" id="login-form">
+            <h2>Admin Panel</h2>
+            
+            <div class="form-example">
+                <label for="name">Digite seu nome:</label>
+                <input type="text" name="name" id="name" placeholder="Seu nome" required />
+            </div>
+            <div class="form-example">
+                <label for="email">Digite seu Email:</label>
+                <input type="email" name="email" id="email" placeholder="example@mail.com" required />
+            </div>
+            <div class="form-example">
+                <label for="passwd">Digite sua senha: </label>
+                <input type="password" name="passwd" id="passwd" placeholder="Sua senha" required />
+            </div>
+            <div class="form-example button-row">
+                <button type="reset">Cancelar</button>
+                <button type="submit" data-action="login">Entrar</button>
+                <button type="submit" data-action="register">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
