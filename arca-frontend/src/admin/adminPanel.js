@@ -1,20 +1,23 @@
 import { api } from "../api.js";
 
 async function get_login() {
-    const login = localStorage.getItem('user');
+    const login = JSON.parse(localStorage.getItem('session'));
 
-    if (!login) {
-        throw new Error("Algo de MUITO errado não está certo");
-        return;
+    if (!login || login.role !== "admin") {
+        alert("Acesso Inautorizado",403);
+        //throw new Error("Acesso Negado - 403");
+        //Redirect para pagina de login aodmin.
+        return false;
     }
-
+    console.log(login);
     const login_container = document.getElementById('user-profile');
     const profile = `   <h1>Perfil</h1>
-                        <h2>Nome: <span id="profile-name">${login.name}</span></h2>
+                        <h2>Nome: <span id="profile-name">${login.user}</span></h2>
                         <h2>Email: <span id="profile-email">${login.email}</span></h2>
                         <h2>Role: <span id="profile-role">${login.role}</span></h2>
                     `;
     login_container.innerHTML = profile;
+    return true;
 }
 
 export async function showUsers() {
@@ -54,30 +57,73 @@ export async function authGetusers() {
 }
 
 async function purge(){
-    //Deleta a databse inteira!
+    //Deleta a database inteira!
     
     const url = "http://127.0.0.1:8000/api/v1/admin/purge"
+    const token = JSON.parse(localStorage.getItem('session')).token
+    console.log("token:",
+        JSON.parse(localStorage.getItem('session')).token,
+    )
     const response = await api(url,
         {
         method:"DELETE",
+        body:{token:token},
         headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json",
     }
 });
 
     return response;
-    console.log("Database Purged")
+}
+
+async function promote(){
+    
 }
 
 async function main(){
-    const login = {name:"Ferdinand",email:"ferdinand@gmail.com",role:"admin"}
+    //const login = {name:"Ferdinand",email:"ferdinand@gmail.com",role:"admin"}
     //const login = null;
-    get_login()
+    const login = await get_login();
+
+    if(!login){
+        console.log("redirecionando para login")
+        window.location.replace("./admin.html")
+        //redirect to admin login page
+        return;
+    }
+
+    const promote_form = document.getElementById("promote-form");
+    promote_form.addEventListener("submit",async (event) =>{
+        event.preventDefault();
+
+        const form_data = new FormData(promote_form);
+        const auth_token = JSON.parse(localStorage.getItem('session')).token
+        console.log(auth_token);
+        const form_body = {
+           token: auth_token,
+            "email":form_data.get("email")
+        }
+
+        const url = "http://127.0.0.1:8000/api/v1/admin/promote"
+        const response = await api(url, {
+            method: "POST",
+
+            headers:{
+                "Content-Type": "application/json",
+                "accept":"application/json"
+            },
+
+            body: form_body
+        });
+
+        console.log(response.status,response.data.message)
+    })
 
     const purge_button = document.getElementById("purge-button")
     purge_button.addEventListener("click",async ()=>{
-        console.log(await purge());
+        const purge_it = await purge();
+        console.log(purge_it.data.message,purge_it.status);
     })
 
     const search_all_button = document.getElementById("search-all-users");

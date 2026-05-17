@@ -1,18 +1,4 @@
-* {
-    box-sizing: border-box;
-    inset: 0;
-    margin: 0;
-}
-
-body {
-    position:relative;
-    width: 100vw;
-    height: 100vh;
-}
-
-/* Adicionar uma media query pra esse troço. */
-
-.register-modal {
+.login-modal {
     position: absolute;
     z-index: 1;
     width: 100%;
@@ -24,15 +10,15 @@ body {
     padding-bottom:15%;
 }
 
-.register-modal {
+.login-modal {
     visibility: hidden;
 }
 
-.register-modal.active {
+.login-modal.active {
     visibility: visible;
 }
 
-.register-form {
+.login-form {
     background-color: pink;
     width: 100%;
     height: 100%;
@@ -47,7 +33,7 @@ body {
 
 }
 
-.register-form > div {
+.login-form > div {
     margin:0;
     display: flex;
     flex-direction: column;
@@ -55,16 +41,16 @@ body {
     align-items: center;
 }
 
-.register-form .button-row {
+.login-form .button-row {
     flex-direction: row;
     gap: 0.5rem;
 }
 
-.register-form .form-example input:valid:not(:placeholder-shown) {
+.login-form .form-example input:valid:not(:placeholder-shown) {
     border: 2px solid green;
 }
 
 
-.register-form .form-example input:invalid:not(:placeholder-shown) {
+.login-form .form-example input:invalid:not(:placeholder-shown) {
     border: 2px solid red;
 }

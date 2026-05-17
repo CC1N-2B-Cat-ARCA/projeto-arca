@@ -20,8 +20,13 @@ export async function api(
         headers: final_headers,
         body: body ? JSON.stringify(body) : null
     });
+    let data = null;
 
-    const data = await response.json();
+    const text = await response.text();
+
+    if(text){
+        data = JSON.parse(text);
+    }
 
     if (!response.ok) {
         switch (response.status) {
@@ -36,9 +41,11 @@ export async function api(
                 alert(response.status+" Voce não tem autorização pra tal ação");
                 break;
             case 404:
-                alert(response.status+"Não encontrado ")
+                alert(response.status+"Não encontrado")
+                break;
             case 409:
                 console.log(response.status+" Dados em conflito")
+                break;
             case 422:
                 console.log(response.status+" Dados invalidos", data)
                 break;
@@ -49,5 +56,8 @@ export async function api(
 
         throw new Error(data.message || 'API Error '+response.status);
     }
-    return data;
+    return {
+        status: response.status,
+        data
+    };
 }
