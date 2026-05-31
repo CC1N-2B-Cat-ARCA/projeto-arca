@@ -1,0 +1,41 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root{
+    --verde-arca: #0d5244;
+    --bege-suave: #d9c1b4;
+    --marrom-logo:#734230;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding:0
+}
+
+img,picture {
+    max-width: 100%;
+    display: block;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+body{
+    background-color: var(--verde-arca);
+    
+}
