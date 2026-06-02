@@ -3,6 +3,7 @@ import { render_user_profile } from "./render.js";
 
 async function main() {
     document.addEventListener("DOMContentLoaded", () => {
+        api.init();
 
         const get_user_btn = document.getElementById("get-user");
         get_user_btn.addEventListener("click", async (e) => {

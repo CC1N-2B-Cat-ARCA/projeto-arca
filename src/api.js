@@ -1,4 +1,9 @@
 export const api = {
+    
+    init: function(){
+        create_table("users");
+        create_table("session");
+    },
     get: async function (request, data = {}) {
         switch (request) {
             case "/get-users": {
@@ -122,4 +127,10 @@ function get_table(table_name) {
         window.alert(`404 - Table "${table_name}" not found`)
         return [];
     }
+}
+
+export function create_table(table_name){
+    if(localStorage.getItem(table_name) === null) {
+        localStorage.setItem(table_name, JSON.stringify([]))
+    }  
 }
