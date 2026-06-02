@@ -1,20 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/home.css">
+    <script type="module" src="./src/main.js"></script>
     <title>Projeto Arca - Home</title>
 </head>
+
 <body>
     <header>
         <nav>
-
+            <button id="get-user">Get users</button>
+            <button id="get-session">Get current Session</button>
         </nav>
     </header>
 
     <main>
+        <form id="reg-form">
+            <label for="name">nome</label>
+            <input type="text" id="name" name="name">
+            <label for="email">email</label>
+            <input type="email" name="email" id="email">
+            <label for="passwd">Senha</label>
+            <input type="password" name="passwd" id="passwd">
+            <button type="submit">Cadastrar</button>
+        </form>
 
+        <form id="login-form">
+            <label for="name">nome</label>
+            <input type="text" id="name" name="name">
+            <label for="email">email</label>
+            <input type="email" name="email" id="email">
+            <label for="passwd">Senha</label>
+            <input type="password" name="passwd" id="passwd">
+            <button type="submit">Logar</button>
+        </form>
+
+        <form action="" id="profile-pic-form">
+            <label for="name"> Nome do usuario</label>
+            <input type="text" name="name">
+            <label for="avatar">Foto</label>
+            <input type="text" name="avatar" id="avatar" placeholder="link da foto de perfil">
+            <button type="submit">Trocar Foto de perfil</button>
+        </form>
+
+        <form action="" id="delete-form">
+            <label for="id">id do usuario</label>
+            <input type="number" name="id">
+            <button type="submit">Deletar usuario</button>
+        </form>
+
+
+        <div id="user-profile" class="user-profile">
+
+        </div>
     </main>
 </body>
+
 </html>
