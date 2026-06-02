@@ -121,7 +121,7 @@ export const api = {
 
 function get_table(table_name) {
     try {
-        return JSON.parse(localStorage.getItem(table_name) || []);
+        return JSON.parse(localStorage.getItem(table_name) || "[]");
     } catch {
         console.error(`404 - Table "${table_name}" not found`)
         window.alert(`404 - Table "${table_name}" not found`)
