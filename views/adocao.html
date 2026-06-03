@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adoção Responsável</title>
+
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/adocao.css">
+
+    <header class="navbar">
+        <a href="../index.html">
+            <div class="navbar__logo">
+                <i data-lucide="paw-print" class="logo-icon"></i>
+                <span class="logo-text">Projeto Arca</span>
+            </div>
+        </a>
+        <nav class="navbar__links">
+            <a href="#" class="nav-link nav-link--active">Serviços</a>
+            <a href="#" class="nav-link">Notícias</a>
+            <a href="#" class="nav-link">Quem Somos?</a>
+            <a href="#" class="nav-link">Ajuda</a>
+        </nav>
+        <div class="navbar__actions">
+            <button class="btn btn--report">
+                <i data-lucide="alert-triangle" class="btn-icon"></i>
+                Denunciar
+            </button>
+            <div class="search-bar">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" placeholder="Procurar" class="search-input" />
+            </div>
+            <div class="notif-menu" id="notifMenu">
+                <button class="icon-btn" aria-label="Notificações" id="notifMenuBtn">
+                    <i data-lucide="bell" class="icon-btn__icon"></i>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="notif-dropdown" id="notifDropdown">
+                    <div class="notif-dropdown__header">
+                        <span class="notif-dropdown__title">Notificações</span>
+                        <a href="#" class="notif-dropdown__mark-all">Marcar todas como lidas</a>
+                    </div>
+                    <div class="notif-dropdown__list">
+                        <div class="notif-item notif-item--unread">
+                            <div class="notif-item__icon notif-item__icon--green">
+                                <i data-lucide="paw-print"></i>
+                            </div>
+                            <div class="notif-item__body">
+                                <p class="notif-item__text">Seu pedido de adoção do <strong>Bolinha</strong> foi
+                                    aprovado!
+                                </p>
+                                <span class="notif-item__time">Há 5 minutos</span>
+                            </div>
+                            <span class="notif-item__dot"></span>
+                        </div>
+                        <div class="notif-item notif-item--unread">
+                            <div class="notif-item__icon notif-item__icon--brown">
+                                <i data-lucide="syringe"></i>
+                            </div>
+                            <div class="notif-item__body">
+                                <p class="notif-item__text">Lembrete: castração agendada para <strong>amanhã às
+                                        9h</strong>.
+                                </p>
+                                <span class="notif-item__time">Há 1 hora</span>
+                            </div>
+                            <span class="notif-item__dot"></span>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-item__icon notif-item__icon--red">
+                                <i data-lucide="megaphone"></i>
+                            </div>
+                            <div class="notif-item__body">
+                                <p class="notif-item__text">Nova campanha de vacinação disponível na Serra.</p>
+                                <span class="notif-item__time">Ontem</span>
+                            </div>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-item__icon notif-item__icon--green">
+                                <i data-lucide="heart"></i>
+                            </div>
+                            <div class="notif-item__body">
+                                <p class="notif-item__text"><strong>Mel</strong> está esperando por você! Perfil
+                                    atualizado.
+                                </p>
+                                <span class="notif-item__time">2 dias atrás</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="notif-dropdown__footer">Ver todas as notificações</a>
+                </div>
+            </div>
+            <div class="user-menu" id="userMenu">
+                <button class="icon-btn" aria-label="Perfil" id="userMenuBtn">
+                    <i data-lucide="user-circle" class="icon-btn__icon"></i>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-dropdown__header">
+                        <div class="user-dropdown__avatar" id="user-avatar">
+                            <i data-lucide="user-circle"></i>
+                        </div>
+                        <div id="user-info">
+                            <p class="user-dropdown__name">Minha Conta</p>
+                            <p class="user-dropdown__email">usuario@email.com</p>
+                        </div>
+                    </div>
+                    <div id="test">
+                        <a href="#" class="user-dropdown__item user-dropdown__item--danger" id="exit">
+                            <i data-lucide="log-out"></i> Sair
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="hamburger" aria-label="Menu" id="hamburgerBtn">
+            <i data-lucide="menu"></i>
+        </button>
+    </header>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<main class="adoption-page">
+
+    <section class="page-header">
+
+        <div class="page-title">
+
+            <i data-lucide="paw-print"></i>
+
+            <h1>Adoção responsável</h1>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="filters">
+
+        <select>
+            <option>Espécies: Todos</option>
+        </select>
+
+        <select>
+            <option>Sexo: Todos</option>
+        </select>
+
+        <select>
+            <option>Idade: Todos</option>
+        </select>
+
+        <select>
+            <option>Porte: Todos</option>
+        </select>
+
+        <select>
+            <option>Origem: Todos</option>
+        </select>
+
+    </section>
+
+
+
+    <section class="animals-grid">
+
+
+
+        <article class="animal-card">
+
+            <img
+                class="animal-image"
+                src="https://images.unsplash.com/photo-1519052537078-e6302a4968d4?w=800"
+                alt="Luna">
+
+            <div class="animal-body">
+
+                <h3>Luna</h3>
+
+                <p class="animal-description">
+                    Siamês - 1 ano - Fêmea
+                </p>
+
+                <div class="animal-tags">
+
+                    <span class="tag">
+                        Castrado
+                    </span>
+
+                    <span class="tag">
+                        Vacinado
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="animal-footer">
+
+                <span class="status available">
+
+                    <i data-lucide="paw-print"></i>
+
+                    Disponível
+
+                </span>
+
+                <button class="adopt-button">
+                    Adotar
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="animal-card">
+
+            <img
+                class="animal-image"
+                src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=800"
+                alt="Thor">
+
+            <div class="animal-body">
+
+                <h3>Thor</h3>
+
+                <p class="animal-description">
+                    Golden Retriever - 2 anos - Macho
+                </p>
+
+                <div class="animal-tags">
+
+                    <span class="tag">
+                        Castrado
+                    </span>
+
+                    <span class="tag">
+                        Vacinado
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="animal-footer">
+
+                <span class="status available">
+
+                    <i data-lucide="paw-print"></i>
+
+                    Disponível
+
+                </span>
+
+                <button class="adopt-button">
+                    Adotar
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="animal-card">
+
+            <img
+                class="animal-image"
+                src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800"
+                alt="Bolinha">
+
+            <div class="animal-body">
+
+                <h3>Bolinha</h3>
+
+                <p class="animal-description">
+                    SRD - 4 anos - Macho
+                </p>
+
+                <div class="animal-tags">
+
+                    <span class="tag">
+                        Vacinado
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="animal-footer">
+
+                <span class="status processing">
+                    Em processo
+                </span>
+
+                <button class="adopt-button">
+                    Adotar
+                </button>
+
+            </div>
+
+        </article>
+
+    </section>
+
+</main>
+
+<script>
+    lucide.createIcons();
+</script>
+<script type="module" src="../src/index.js"></script>
+  <script type="module" src="../src/components/profile_dropdown.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel da ONG - Projeto Arca</title>
+
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/ong.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="../index.html">
+            <div class="navbar__logo">
+                <i data-lucide="paw-print" class="logo-icon"></i>
+                <span class="logo-text">Projeto Arca</span>
+            </div>
+        </a>
+        <nav class="navbar__links">
+            <a href="#" class="nav-link nav-link--active">Serviços</a>
+            <a href="#" class="nav-link">Notícias</a>
+            <a href="#" class="nav-link">Quem Somos?</a>
+            <a href="#" class="nav-link">Ajuda</a>
+        </nav>
+        <div class="navbar__actions">
+            <button class="btn btn--report">
+                <i data-lucide="alert-triangle" class="btn-icon"></i>
+                Denunciar
+            </button>
+            <div class="search-bar">
+                <i data-lucide="search" class="search-icon"></i>
+                <input type="text" placeholder="Procurar" class="search-input" />
+            </div>
+            <div class="notif-menu" id="notifMenu">
+                <button class="icon-btn" aria-label="Notificações" id="notifMenuBtn">
+                    <i data-lucide="bell" class="icon-btn__icon"></i>
+                    <span class="notification-dot"></span>
+                </button>
+                <div class="notif-dropdown" id="notifDropdown">
+                    <div class="notif-dropdown__header">
+                        <span class="notif-dropdown__title">Notificações</span>
+                        <a href="#" class="notif-dropdown__mark-all">Marcar todas como lidas</a>
+                    </div>
+                    <div class="notif-dropdown__list">
+                        <div class="notif-item notif-item--unread">
+                            <div class="notif-item__icon notif-item__icon--green">
+                                <i data-lucide="paw-print"></i>
+                            </div>
+                            <div class="notif-item__body">
+                                <p class="notif-item__text">Seu pedido de adoção do <strong>Bolinha</strong> foi
+                                    aprovado!
+                                </p>
+                                <span class="notif-item__time">Há 5 minutos</span>
+                            </div>
+                            <span class="notif-item__dot"></span>
+                        </div>
+                        <div class="notif-item notif-item--unread">
+                            <div class="notif-item__icon notif-item__icon--brown">
+                                <i data-lucide="syringe"></i>
+                            </div>
+                            <div class="notif-item__body">
+                                <p class="notif-item__text">Lembrete: castração agendada para <strong>amanhã às
+                                        9h</strong>.
+                                </p>
+                                <span class="notif-item__time">Há 1 hora</span>
+                            </div>
+                            <span class="notif-item__dot"></span>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-item__icon notif-item__icon--red">
+                                <i data-lucide="megaphone"></i>
+                            </div>
+                            <div class="notif-item__body">
+                                <p class="notif-item__text">Nova campanha de vacinação disponível na Serra.</p>
+                                <span class="notif-item__time">Ontem</span>
+                            </div>
+                        </div>
+                        <div class="notif-item">
+                            <div class="notif-item__icon notif-item__icon--green">
+                                <i data-lucide="heart"></i>
+                            </div>
+                            <div class="notif-item__body">
+                                <p class="notif-item__text"><strong>Mel</strong> está esperando por você! Perfil
+                                    atualizado.
+                                </p>
+                                <span class="notif-item__time">2 dias atrás</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" class="notif-dropdown__footer">Ver todas as notificações</a>
+                </div>
+            </div>
+            <div class="user-menu" id="userMenu">
+                <button class="icon-btn" aria-label="Perfil" id="userMenuBtn">
+                    <i data-lucide="user-circle" class="icon-btn__icon"></i>
+                </button>
+                <div class="user-dropdown" id="userDropdown">
+                    <div class="user-dropdown__header">
+                        <div class="user-dropdown__avatar" id="user-avatar">
+                            <i data-lucide="user-circle"></i>
+                        </div>
+                        <div id="user-info">
+                            <p class="user-dropdown__name">Minha Conta</p>
+                            <p class="user-dropdown__email">usuario@email.com</p>
+                        </div>
+                    </div>
+                    <div id="test">
+                        <a href="#" class="user-dropdown__item user-dropdown__item--danger" id="exit">
+                            <i data-lucide="log-out"></i> Sair
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="hamburger" aria-label="Menu" id="hamburgerBtn">
+            <i data-lucide="menu"></i>
+        </button>
+    </header>
+
+    <div class="dashboard">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-group">
+
+                <span class="sidebar-title">GERAL</span>
+
+                <a href="#" class="sidebar-link active">
+                    <i data-lucide="layout-dashboard"></i>
+                    Dashboard
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="bell"></i>
+                    Notificações
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="calendar"></i>
+                    Agenda
+                </a>
+
+            </div>
+
+
+            <div class="sidebar-group">
+
+                <span class="sidebar-title">ANIMAIS</span>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="dog"></i>
+                    Meus Animais
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="plus-circle"></i>
+                    Cadastrar Animal
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="clipboard-list"></i>
+                    Solicitações
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="heart"></i>
+                    Adoções Concluídas
+                </a>
+
+            </div>
+
+
+            <div class="sidebar-group">
+
+                <span class="sidebar-title">RESGATES</span>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="siren"></i>
+                    Denúncias
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="ambulance"></i>
+                    Em andamento
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="check-check"></i>
+                    Encerrados
+                </a>
+
+            </div>
+
+
+            <div class="sidebar-group">
+
+                <span class="sidebar-title">GESTÃO</span>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="users"></i>
+                    Voluntários
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="bar-chart-3"></i>
+                    Relatórios
+                </a>
+
+                <a href="#" class="sidebar-link">
+                    <i data-lucide="settings"></i>
+                    Configurações
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <main class="content">
+
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+                    <span class="stat-title">Animais disponíveis</span>
+                    <h2 class="stat-number green">24</h2>
+                    <span class="stat-subtitle">+3 esta semana</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-title">Solicitações pendentes</span>
+                    <h2 class="stat-number yellow">8</h2>
+                    <span class="stat-subtitle">2 novas hoje</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-title">Resgates em andamento</span>
+                    <h2 class="stat-number red">5</h2>
+                    <span class="stat-subtitle">1 urgente</span>
+                </div>
+
+                <div class="stat-card">
+                    <span class="stat-title">Adoções concluídas</span>
+                    <h2 class="stat-number green">63</h2>
+                    <span class="stat-subtitle">Este mês</span>
+                </div>
+
+            </section>
+
+
+            <section class="top-grid">
+
+                <div class="card">
+
+                    <div class="card-header">
+
+                        <h3>Solicitações de Adoção</h3>
+
+                        <button class="small-button">
+                            Ver todas
+                        </button>
+
+                    </div>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Adotante</th>
+                                <th>Animal</th>
+                                <th>Status</th>
+                                <th>Ações</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Maria Silva
+                                    <span>CPF 123.456.789-00</span>
+                                </td>
+
+                                <td>
+                                    Bolinha
+                                    <span>Cão SRD</span>
+                                </td>
+
+                                <td>
+                                    <span class="badge warning">
+                                        Em análise
+                                    </span>
+                                </td>
+
+                                <td class="actions">
+
+                                    <button class="action-btn blue">
+                                        Ver
+                                    </button>
+
+                                    <button class="action-btn green">
+                                        Aprovar
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-header center">
+
+                        <i data-lucide="zap"></i>
+
+                        <h3>Ações rápidas</h3>
+
+                    </div>
+
+                    <div class="quick-actions">
+
+                        <button>Cadastrar Animal</button>
+                        <button>Novo Resgate</button>
+
+                        <button>Solicitações</button>
+                        <button>Voluntários</button>
+
+                        <button>Relatórios</button>
+                        <button>Publicações</button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="card">
+
+                <div class="card-header">
+
+                    <h3>Animais cadastrados</h3>
+
+                    <button class="small-button">
+                        Ver todos
+                    </button>
+
+                </div>
+
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Nome</th>
+                            <th>Espécie</th>
+                            <th>Idade</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>Bolinha</td>
+
+                            <td>Cão</td>
+
+                            <td>3 anos</td>
+
+                            <td>
+                                <span class="badge blue">
+                                    Disponível
+                                </span>
+                            </td>
+
+                            <td class="actions">
+
+                                <button class="action-btn blue">
+                                    Ver
+                                </button>
+
+                                <button class="action-btn orange">
+                                    Editar
+                                </button>
+
+                                <button class="action-btn green">
+                                    Adotado
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+<script type="module" src="../src/index.js"></script>
+  <script type="module" src="../src/components/profile_dropdown.js"></script>
+
+</body>
+
+</html>

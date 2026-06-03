@@ -1,62 +1,346 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/home.css">
-    <script type="module" src="./src/main.js"></script>
-    <title>Projeto Arca - Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto Arca</title>
+  <link rel="stylesheet" href="./styles/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <button id="get-user">Get users</button>
-            <button id="get-session">Get current Session</button>
-        </nav>
-    </header>
 
-    <main>
-        <form id="reg-form">
-            <label for="name">nome</label>
-            <input type="text" id="name" name="name">
-            <label for="email">email</label>
-            <input type="email" name="email" id="email">
-            <label for="passwd">Senha</label>
-            <input type="password" name="passwd" id="passwd">
-            <button type="submit">Cadastrar</button>
-        </form>
-
-        <form id="login-form">
-            <label for="name">nome</label>
-            <input type="text" id="name" name="name">
-            <label for="email">email</label>
-            <input type="email" name="email" id="email">
-            <label for="passwd">Senha</label>
-            <input type="password" name="passwd" id="passwd">
-            <button type="submit">Logar</button>
-        </form>
-
-        <form action="" id="profile-pic-form">
-            <label for="name"> Nome do usuario</label>
-            <input type="text" name="name">
-            <label for="avatar">Foto</label>
-            <input type="text" name="avatar" id="avatar" placeholder="link da foto de perfil">
-            <button type="submit">Trocar Foto de perfil</button>
-        </form>
-
-        <form action="" id="delete-form">
-            <label for="id">id do usuario</label>
-            <input type="number" name="id">
-            <button type="submit">Deletar usuario</button>
-        </form>
-
-
-        <div id="user-profile" class="user-profile">
-
+  <header class="navbar">
+    <a href="./index.html">
+      <div class="navbar__logo">
+        <i data-lucide="paw-print" class="logo-icon"></i>
+        <span class="logo-text">Projeto Arca</span>
+      </div>
+    </a>
+    <nav class="navbar__links">
+      <a href="#" class="nav-link nav-link--active">Serviços</a>
+      <a href="#" class="nav-link">Notícias</a>
+      <a href="#" class="nav-link">Quem Somos?</a>
+      <a href="#" class="nav-link">Ajuda</a>
+    </nav>
+    <div class="navbar__actions">
+      <button class="btn btn--report">
+        <i data-lucide="alert-triangle" class="btn-icon"></i>
+        Denunciar
+      </button>
+      <div class="search-bar">
+        <i data-lucide="search" class="search-icon"></i>
+        <input type="text" placeholder="Procurar" class="search-input" />
+      </div>
+      <div class="notif-menu" id="notifMenu">
+        <button class="icon-btn" aria-label="Notificações" id="notifMenuBtn">
+          <i data-lucide="bell" class="icon-btn__icon"></i>
+          <span class="notification-dot"></span>
+        </button>
+        <div class="notif-dropdown" id="notifDropdown">
+          <div class="notif-dropdown__header">
+            <span class="notif-dropdown__title">Notificações</span>
+            <a href="#" class="notif-dropdown__mark-all">Marcar todas como lidas</a>
+          </div>
+          <div class="notif-dropdown__list">
+            <div class="notif-item notif-item--unread">
+              <div class="notif-item__icon notif-item__icon--green">
+                <i data-lucide="paw-print"></i>
+              </div>
+              <div class="notif-item__body">
+                <p class="notif-item__text">Seu pedido de adoção do <strong>Bolinha</strong> foi aprovado!</p>
+                <span class="notif-item__time">Há 5 minutos</span>
+              </div>
+              <span class="notif-item__dot"></span>
+            </div>
+            <div class="notif-item notif-item--unread">
+              <div class="notif-item__icon notif-item__icon--brown">
+                <i data-lucide="syringe"></i>
+              </div>
+              <div class="notif-item__body">
+                <p class="notif-item__text">Lembrete: castração agendada para <strong>amanhã às 9h</strong>.</p>
+                <span class="notif-item__time">Há 1 hora</span>
+              </div>
+              <span class="notif-item__dot"></span>
+            </div>
+            <div class="notif-item">
+              <div class="notif-item__icon notif-item__icon--red">
+                <i data-lucide="megaphone"></i>
+              </div>
+              <div class="notif-item__body">
+                <p class="notif-item__text">Nova campanha de vacinação disponível na Serra.</p>
+                <span class="notif-item__time">Ontem</span>
+              </div>
+            </div>
+            <div class="notif-item">
+              <div class="notif-item__icon notif-item__icon--green">
+                <i data-lucide="heart"></i>
+              </div>
+              <div class="notif-item__body">
+                <p class="notif-item__text"><strong>Mel</strong> está esperando por você! Perfil atualizado.</p>
+                <span class="notif-item__time">2 dias atrás</span>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="notif-dropdown__footer">Ver todas as notificações</a>
         </div>
-    </main>
+      </div>
+      <div class="user-menu" id="userMenu">
+        <button class="icon-btn" aria-label="Perfil" id="userMenuBtn">
+          <i data-lucide="user-circle" class="icon-btn__icon"></i>
+        </button>
+        <div class="user-dropdown" id="userDropdown">
+          <div class="user-dropdown__header">
+            <div class="user-dropdown__avatar" id="user-avatar">
+              <i data-lucide="user-circle"></i>
+            </div>
+            <div id="user-info">
+              <p class="user-dropdown__name">Minha Conta</p>
+              <p class="user-dropdown__email">usuario@email.com</p>
+            </div>
+          </div>
+          <div id="test">
+            <a href="#" class="user-dropdown__item user-dropdown__item--danger" id="exit">
+              <i data-lucide="log-out"></i> Sair
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="hamburger" aria-label="Menu" id="hamburgerBtn">
+      <i data-lucide="menu"></i>
+    </button>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#" class="mobile-link">Serviços</a>
+    <a href="#" class="mobile-link">Notícias</a>
+    <a href="#" class="mobile-link">Quem Somos?</a>
+    <a href="#" class="mobile-link">Ajuda</a>
+    <button class="btn btn--report mobile-report">
+      <i data-lucide="alert-triangle" class="btn-icon"></i>
+      Denunciar
+    </button>
+  </div>
+
+  <section class="hero">
+    <div class="hero__content">
+      <div class="hero__badge">
+        <i data-lucide="map-pin" class="badge-icon"></i>
+        <span>Serra – ES</span>
+      </div>
+      <h1 class="hero__title">
+        Adote um animal.<br />
+        <span class="hero__title--highlight">Torne um pequenino feliz!</span>
+      </h1>
+      <p class="hero__subtitle">
+        Encontre seu companheiro ideal. Perfis completos com histórico de saúde e vacinação.
+      </p>
+      <div class="hero__ctas">
+        <button class="btn btn--primary-solid" id="adopt-btn">Adotar agora</button>
+        <button class="btn btn--outline-light">Ver Serviços</button>
+      </div>
+      <div class="hero__dots">
+        <span class="dot dot--active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+    <div class="hero__image-wrap">
+      <img src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?w=700&q=80" alt="Cachorro e gato juntos"
+        class="hero__image" />
+    </div>
+  </section>
+
+  <section class="services">
+    <div class="service-card">
+      <div class="service-card__icon">
+        <i data-lucide="paw-print"></i>
+      </div>
+      <h3 class="service-card__title">Adote um pet</h3>
+      <p class="service-card__desc">
+        Encontre animais disponíveis. Perfis completos com saúde e vacinação.
+      </p>
+      <a href="./views/adocao.html" class="service-card__link">
+        Saiba mais <i data-lucide="arrow-right" class="link-icon"></i>
+      </a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card__icon">
+        <i data-lucide="syringe"></i>
+      </div>
+      <h3 class="service-card__title">Castre seu pet</h3>
+      <p class="service-card__desc">
+        Castração 100% gratuita para moradores da Serra.
+      </p>
+      <a href="#" class="service-card__link">
+        Agendar <i data-lucide="arrow-right" class="link-icon"></i>
+      </a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-card__icon">
+        <i data-lucide="megaphone"></i>
+      </div>
+      <h3 class="service-card__title">Campanhas</h3>
+      <p class="service-card__desc">
+        Fique por dentro das campanhas de vacinação e eventos.
+      </p>
+      <a href="#" class="service-card__link">
+        Ver campanhas <i data-lucide="arrow-right" class="link-icon"></i>
+      </a>
+    </div>
+  </section>
+
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal">
+      <button class="modal__close" id="closeModal" aria-label="Fechar">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="modal__header">
+        <i data-lucide="paw-print" class="modal__paw"></i>
+        <i data-lucide="paw-print" class="modal__paw modal__paw--sm"></i>
+        <h2 class="modal__title">Bem-vindo ao Arca</h2>
+        <p class="modal__subtitle">Acesse sua conta ou cadastre-se</p>
+      </div>
+
+      <div class="modal__body">
+        <div class="modal__tabs">
+          <button class="modal__tab modal__tab--active" data-tab="login">Entrar</button>
+          <button class="modal__tab" data-tab="register">Criar conta</button>
+        </div>
+
+        <form class="modal__form" id="tabLogin">
+          <div class="form-field">
+            <label class="form-label">CPF <span class="form-required">*</span></label>
+            <input type="text" name="cpf" class="form-input" placeholder="000.000.000-00" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Senha <span class="form-required">*</span></label>
+            <div class="form-input-wrap">
+              <input type="password" name="passwd" class="form-input" id="loginPassword" placeholder="••••••••" />
+              <button class="form-eye" type="button" id="togglePassword" aria-label="Mostrar senha">
+                <i data-lucide="eye"></i>
+              </button>
+            </div>
+          </div>
+          <a href="#" class="form-forgot">Esqueci Minha Senha</a>
+          <button class="btn btn--login-submit" type="submit">Entrar</button>
+          <p class="form-footer">
+            Não possui uma conta?
+            <a href="#" class="form-footer__link" data-switch="register">Cadastre-se</a>
+          </p>
+        </form>
+
+        <form class="modal__form modal__form--hidden" id="tabRegister">
+          <div class="form-field">
+            <label class="form-label">Nome completo <span class="form-required">*</span></label>
+            <input type="text" name="name" class="form-input" placeholder="Seu nome" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">CPF <span class="form-required">*</span></label>
+            <input type="text" name="cpf" class="form-input" placeholder="000.000.000-00" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">E-mail <span class="form-required">*</span></label>
+            <input type="email" name="email" class="form-input" placeholder="seu@email.com" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Senha <span class="form-required">*</span></label>
+            <input type="password" name="passwd" class="form-input" placeholder="••••••••" />
+          </div>
+          <button class="btn btn--login-submit" type="submit">Criar conta</button>
+          <p class="form-footer">
+            Já tem uma conta?
+            <a href="#" class="form-footer__link" data-switch="login">Entrar</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+
+
+    const notifMenuBtn = document.getElementById('notifMenuBtn');
+    const notifDropdown = document.getElementById('notifDropdown');
+
+    notifMenuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      userDropdown.classList.remove('user-dropdown--open');
+      notifDropdown.classList.toggle('notif-dropdown--open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!document.getElementById('notifMenu').contains(e.target)) {
+        notifDropdown.classList.remove('notif-dropdown--open');
+      }
+    });
+
+    document.querySelector('.notif-dropdown__mark-all').addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('.notif-item--unread').forEach(item => {
+        item.classList.remove('notif-item--unread');
+        const dot = item.querySelector('.notif-item__dot');
+        if (dot) dot.remove();
+      });
+      document.querySelector('.notification-dot').style.display = 'none';
+    });
+
+    document.querySelectorAll('.modal__tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+        document.querySelectorAll('.modal__tab').forEach(t => t.classList.remove('modal__tab--active'));
+        tab.classList.add('modal__tab--active');
+        document.getElementById('tabLogin').classList.add('modal__form--hidden');
+        document.getElementById('tabRegister').classList.add('modal__form--hidden');
+        document.getElementById(target === 'login' ? 'tabLogin' : 'tabRegister').classList.remove('modal__form--hidden');
+      });
+    });
+
+    document.querySelectorAll('[data-switch]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = link.dataset.switch;
+        document.querySelectorAll('.modal__tab').forEach(t => {
+          t.classList.toggle('modal__tab--active', t.dataset.tab === target);
+        });
+        document.getElementById('tabLogin').classList.toggle('modal__form--hidden', target !== 'login');
+        document.getElementById('tabRegister').classList.toggle('modal__form--hidden', target !== 'register');
+      });
+    });
+
+    const togglePassword = document.getElementById('togglePassword');
+    const loginPassword = document.getElementById('loginPassword');
+    togglePassword.addEventListener('click', () => {
+      const isPass = loginPassword.type === 'password';
+      loginPassword.type = isPass ? 'text' : 'password';
+      togglePassword.innerHTML = isPass
+        ? '<i data-lucide="eye-off"></i>'
+        : '<i data-lucide="eye"></i>';
+      lucide.createIcons();
+    });
+
+    const hamburger = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.toggle('mobile-menu--open');
+    });
+
+  </script>
+
+  <script type="module" src="./src/index.js"></script>
+  <script type="module" src="./src/components/profile_dropdown.js"></script>
 </body>
 
 </html>

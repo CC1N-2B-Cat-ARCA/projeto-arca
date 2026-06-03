@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projeto Arca — Meu Perfil</title>
+  <link rel="stylesheet" href="../styles/styles.css" />
+  <link rel="stylesheet" href="../styles/perfil.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Noto+Sans:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+
+<body>
+  
+  <header class="navbar">
+    <a href="../index.html">
+        <div class="navbar__logo">
+            <i data-lucide="paw-print" class="logo-icon"></i>
+            <span class="logo-text">Projeto Arca</span>
+        </div>
+    </a>
+    <nav class="navbar__links">
+        <a href="#" class="nav-link nav-link--active">Serviços</a>
+        <a href="#" class="nav-link">Notícias</a>
+        <a href="#" class="nav-link">Quem Somos?</a>
+        <a href="#" class="nav-link">Ajuda</a>
+    </nav>
+    <div class="navbar__actions">
+        <button class="btn btn--report">
+            <i data-lucide="alert-triangle" class="btn-icon"></i>
+            Denunciar
+        </button>
+        <div class="search-bar">
+            <i data-lucide="search" class="search-icon"></i>
+            <input type="text" placeholder="Procurar" class="search-input" />
+        </div>
+        <div class="notif-menu" id="notifMenu">
+            <button class="icon-btn" aria-label="Notificações" id="notifMenuBtn">
+                <i data-lucide="bell" class="icon-btn__icon"></i>
+                <span class="notification-dot"></span>
+            </button>
+            <div class="notif-dropdown" id="notifDropdown">
+                <div class="notif-dropdown__header">
+                    <span class="notif-dropdown__title">Notificações</span>
+                    <a href="#" class="notif-dropdown__mark-all">Marcar todas como lidas</a>
+                </div>
+                <div class="notif-dropdown__list">
+                    <div class="notif-item notif-item--unread">
+                        <div class="notif-item__icon notif-item__icon--green">
+                            <i data-lucide="paw-print"></i>
+                        </div>
+                        <div class="notif-item__body">
+                            <p class="notif-item__text">Seu pedido de adoção do <strong>Bolinha</strong> foi aprovado!
+                            </p>
+                            <span class="notif-item__time">Há 5 minutos</span>
+                        </div>
+                        <span class="notif-item__dot"></span>
+                    </div>
+                    <div class="notif-item notif-item--unread">
+                        <div class="notif-item__icon notif-item__icon--brown">
+                            <i data-lucide="syringe"></i>
+                        </div>
+                        <div class="notif-item__body">
+                            <p class="notif-item__text">Lembrete: castração agendada para <strong>amanhã às 9h</strong>.
+                            </p>
+                            <span class="notif-item__time">Há 1 hora</span>
+                        </div>
+                        <span class="notif-item__dot"></span>
+                    </div>
+                    <div class="notif-item">
+                        <div class="notif-item__icon notif-item__icon--red">
+                            <i data-lucide="megaphone"></i>
+                        </div>
+                        <div class="notif-item__body">
+                            <p class="notif-item__text">Nova campanha de vacinação disponível na Serra.</p>
+                            <span class="notif-item__time">Ontem</span>
+                        </div>
+                    </div>
+                    <div class="notif-item">
+                        <div class="notif-item__icon notif-item__icon--green">
+                            <i data-lucide="heart"></i>
+                        </div>
+                        <div class="notif-item__body">
+                            <p class="notif-item__text"><strong>Mel</strong> está esperando por você! Perfil atualizado.
+                            </p>
+                            <span class="notif-item__time">2 dias atrás</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="#" class="notif-dropdown__footer">Ver todas as notificações</a>
+            </div>
+        </div>
+        <div class="user-menu" id="userMenu">
+            <button class="icon-btn" aria-label="Perfil" id="userMenuBtn">
+                <i data-lucide="user-circle" class="icon-btn__icon"></i>
+            </button>
+            <div class="user-dropdown" id="userDropdown">
+                <div class="user-dropdown__header">
+                    <div class="user-dropdown__avatar" id="user-avatar">
+                        <i data-lucide="user-circle"></i>
+                    </div>
+                    <div id="user-info">
+                        <p class="user-dropdown__name">Minha Conta</p>
+                        <p class="user-dropdown__email">usuario@email.com</p>
+                    </div>
+                </div>
+                <div id="test">
+                    <a href="#" class="user-dropdown__item user-dropdown__item--danger" id="exit">
+                        <i data-lucide="log-out"></i> Sair
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="hamburger" aria-label="Menu" id="hamburgerBtn">
+        <i data-lucide="menu"></i>
+    </button>
+</header>
+
+  <section class="profile-header">
+    <div class="profile-header__inner">
+
+      <div class="profile-header__user">
+        <div class="profile-avatar" id="profileAvatar">
+          <i data-lucide="user-circle" class="profile-avatar__icon"></i>
+        </div>
+        <div class="profile-header__info">
+          <h2 class="profile-name" id="profileName">Maria</h2>
+          <div class="profile-meta">
+            <span class="profile-meta__item" id="profileCpf">
+              <i data-lucide="id-card"></i> CPF 000.000.000-00
+            </span>
+            <span class="profile-meta__sep">·</span>
+            <span class="profile-meta__item" id="profileLocation">
+              <i data-lucide="map-pin"></i> Carapina, Serra/ES
+            </span>
+          </div>
+          <div class="profile-badges">
+            <span class="profile-badge profile-badge--green" id="profileAnimalCount">
+              <i data-lucide="paw-print"></i> 2 animais cadastrados
+            </span>
+            <span class="profile-badge profile-badge--beige" id="profileMemberSince">
+              Membro desde jan/2025
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-header__actions">
+        <button class="btn-ghost" id="btnConfiguracoes">
+          <i data-lucide="settings"></i> Configurações
+        </button>
+        <button class="btn-nova-solicitacao" id="btnNovaSolicitacao">
+          <i data-lucide="plus"></i> Nova Solicitação
+        </button>
+      </div>
+
+    </div>
+
+    <nav class="profile-tabs" id="profileTabs">
+      <button class="profile-tab profile-tab--active" data-tab="resumo" id="tabBtnResumo">Resumo</button>
+      <button class="profile-tab" data-tab="solicitacoes" id="tabBtnSolicitacoes">Solicitações</button>
+      <button class="profile-tab" data-tab="meus-animais" id="tabBtnMeusAnimais">Meus Animais</button>
+      <button class="profile-tab" data-tab="documentos" id="tabBtnDocumentos">Documentos</button>
+      <button class="profile-tab" data-tab="notificacoes" id="tabBtnNotificacoes">Notificações</button>
+      <button class="profile-tab" data-tab="historico" id="tabBtnHistorico">Histórico</button>
+    </nav>
+  </section>
+  
+  <main class="profile-main">
+
+    <div class="tab-panel tab-panel--active" id="panelResumo">
+
+      <div class="alerts-area" id="alertsArea">
+        <div class="alert alert--blue" id="alertVacinacao">
+          <i data-lucide="calendar-check"></i>
+          <span id="alertVacinacaoText">Vacinação da Mia Agendada para 28/04 às 10h</span>
+          <button class="alert__close" data-alert="alertVacinacao" aria-label="Fechar">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+        <div class="alert alert--yellow" id="alertDocumento">
+          <i data-lucide="file-warning"></i>
+          <span id="alertDocumentoText">Falta 1 Documento para concluir a adoção de Bolinha</span>
+          <button class="alert__close" data-alert="alertDocumento" aria-label="Fechar">
+            <i data-lucide="x"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card" id="statCastracao">
+          <span class="stat-card__number" id="statCastracaoNum">1</span>
+          <span class="stat-card__label">Castração em andamento</span>
+        </div>
+        <div class="stat-card" id="statAdocao">
+          <span class="stat-card__number" id="statAdocaoNum">1</span>
+          <span class="stat-card__label">Adoção em análise</span>
+        </div>
+        <div class="stat-card" id="statVacina">
+          <span class="stat-card__number" id="statVacinaNum">1</span>
+          <span class="stat-card__label">Vacinação agendada</span>
+        </div>
+        <div class="stat-card stat-card--warning" id="statDocPendente">
+          <span class="stat-card__number stat-card__number--warning" id="statDocPendenteNum">1</span>
+          <span class="stat-card__label">Documento Pendente</span>
+        </div>
+      </div>
+
+      <div class="resumo-grid">
+
+        <div class="resumo-card" id="agendamentoCard">
+          <div class="resumo-card__header">
+            <h3 class="resumo-card__title">Próximo Agendamento</h3>
+            <a href="#" class="resumo-card__action" id="btnAdicionarAgenda">
+              <i data-lucide="calendar-plus"></i> Adicionar à agenda
+            </a>
+          </div>
+          <div class="agendamento-item" id="agendamentoItem">
+            <div class="agendamento-item__top">
+              <div class="agendamento-item__icon">
+                <i data-lucide="syringe"></i>
+              </div>
+              <div>
+                <p class="agendamento-item__nome" id="agendamentoNome">Vacinação – MIA</p>
+                <p class="agendamento-item__data" id="agendamentoData">28/04/2025 às 9:00</p>
+                <p class="agendamento-item__local" id="agendamentoLocal">
+                  <i data-lucide="map-pin"></i> Jardim Carapina
+                </p>
+              </div>
+            </div>
+            <a href="#" class="btn-como-chegar" id="btnComoChegar">
+              <i data-lucide="navigation"></i> Como Chegar
+            </a>
+          </div>
+          <div class="resumo-card__divider"></div>
+          <div class="meus-animais-mini">
+            <div class="resumo-card__header">
+              <h3 class="resumo-card__title">Meus Animais</h3>
+              <a href="#" class="resumo-card__action" id="btnVerTodosAnimais">Ver Todos</a>
+            </div>
+            <ul class="animal-list" id="animalListMini">
+              <li class="animal-item" id="animalItem-mia" data-animal-id="mia">
+                <div class="animal-item__info">
+                  <div class="animal-item__avatar">
+                    <i data-lucide="cat"></i>
+                  </div>
+                  <div>
+                    <p class="animal-item__nome">Mia</p>
+                    <p class="animal-item__meta">Gato · Fêmea · 1 ano</p>
+                  </div>
+                </div>
+                <span class="animal-tag animal-tag--green" id="animalTagMia">Castração</span>
+              </li>
+            </ul>
+            <button class="btn-cadastrar-animal" id="btnCadastrarAnimal">
+              <i data-lucide="plus"></i> Cadastrar novo animal
+            </button>
+          </div>
+        </div>
+
+        <div class="resumo-card" id="adocaoCard">
+          <div class="resumo-card__header">
+            <h3 class="resumo-card__title" id="adocaoProtocolo">Adoção – ARC-A762</h3>
+            <span class="status-badge status-badge--yellow" id="adocaoStatus">Em análise</span>
+          </div>
+
+          <div class="adocao-animal" id="adocaoAnimalInfo">
+            <div class="adocao-animal__avatar">
+              <i data-lucide="dog"></i>
+            </div>
+            <div>
+              <p class="adocao-animal__nome" id="adocaoAnimalNome">BOLINHA</p>
+              <p class="adocao-animal__meta" id="adocaoAnimalMeta">CÃO · SRD · MACHO</p>
+              <p class="adocao-animal__ong" id="adocaoAnimalOng">ONG Patinhas Felizes</p>
+            </div>
+          </div>
+
+          <div class="adocao-meta-row">
+            <span class="adocao-meta-item" id="adocaoSolicitado">
+              <i data-lucide="calendar"></i> Solicitado 05/04/2025
+            </span>
+          </div>
+
+          <div class="doc-progress" id="docProgress">
+            <div class="doc-progress__header">
+              <span class="doc-progress__label" id="docProgressLabel">Documentação (2/3 enviado)</span>
+              <span class="doc-progress__pct" id="docProgressPct">66%</span>
+            </div>
+            <div class="doc-progress__bar">
+              <div class="doc-progress__fill" id="docProgressFill" style="width: 66%"></div>
+            </div>
+          </div>
+
+          <ul class="doc-list" id="docList">
+            <li class="doc-item" id="docItemRg">
+              <span class="doc-item__name">
+                <i data-lucide="file-text"></i> RG / CNH
+              </span>
+              <span class="doc-status doc-status--sent" id="docStatusRg">Enviado</span>
+            </li>
+            <li class="doc-item" id="docItemResidencia">
+              <span class="doc-item__name">
+                <i data-lucide="home"></i> Comprovante de Residência
+              </span>
+              <span class="doc-status doc-status--sent" id="docStatusResidencia">Enviado</span>
+            </li>
+            <li class="doc-item" id="docItemTermo">
+              <span class="doc-item__name">
+                <i data-lucide="file-signature"></i> Termo de Responsabilidade
+              </span>
+              <button class="doc-status doc-status--pending" id="docStatusTermo">
+                Enviar agora
+              </button>
+            </li>
+          </ul>
+
+          <p class="adocao-footer-note" id="adocaoFooterNote">
+            Documentação 66% completa. Aprovação pendente do documento final.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panelSolicitacoes">
+      <div class="tab-empty">
+        <i data-lucide="clipboard-list"></i>
+        <p>Suas solicitações aparecerão aqui.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panelMeusAnimais">
+      <div class="tab-empty">
+        <i data-lucide="paw-print"></i>
+        <p>Seus animais cadastrados aparecerão aqui.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panelDocumentos">
+      <div class="tab-empty">
+        <i data-lucide="folder-open"></i>
+        <p>Seus documentos aparecerão aqui.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panelNotificacoes">
+      <div class="tab-empty">
+        <i data-lucide="bell"></i>
+        <p>Suas notificações aparecerão aqui.</p>
+      </div>
+    </div>
+
+    <div class="tab-panel" id="panelHistorico">
+      <div class="tab-empty">
+        <i data-lucide="history"></i>
+        <p>Seu histórico aparecerá aqui.</p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    lucide.createIcons();
+
+    const tabButtons = document.querySelectorAll('.profile-tab');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+
+        tabButtons.forEach(b => b.classList.remove('profile-tab--active'));
+        tabPanels.forEach(p => p.classList.remove('tab-panel--active'));
+
+        btn.classList.add('profile-tab--active');
+        document.getElementById('panel' + capitalize(target.replace('-', ''))).classList.add('tab-panel--active');
+      });
+    });
+
+    function capitalize(str) {
+      return str.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+    }
+
+    document.querySelectorAll('.alert__close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const alertId = btn.dataset.alert;
+        const el = document.getElementById(alertId);
+        if (el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(-6px)';
+          setTimeout(() => el.remove(), 200);
+        }
+      });
+    });
+  </script>
+<script type="module" src="../src/index.js"></script>
+  <script type="module" src="../src/components/profile_dropdown.js"></script>
+</body>
+
+</html>

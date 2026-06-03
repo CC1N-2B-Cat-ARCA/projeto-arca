@@ -1,5 +1,5 @@
-import { api } from "./api.js";
-import { render_user_profile } from "./render.js";
+import { api } from "./core/api.js";
+import { render_user_profile } from "./core/render.js";
 
 async function main() {
     document.addEventListener("DOMContentLoaded", () => {
@@ -23,7 +23,8 @@ async function main() {
             e.preventDefault();
 
             const formData = new FormData(reg_form);
-            const data = Object.fromEntries(formData);
+            const data = {...Object.fromEntries(formData), role:"user"};
+            console.log(data)
 
             await api.post("/create-user", data);
         });
@@ -36,7 +37,7 @@ async function main() {
             const data = Object.fromEntries(formData);
 
             const logged = await api.put("/user-login", data);
-            if (logged) { render_user_profile(); }
+            if (logged) { console.log("Login successful"); }
         });
 
         const profile_pic_form = document.getElementById("profile-pic-form");

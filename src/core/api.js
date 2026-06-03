@@ -1,8 +1,9 @@
 export const api = {
-    
-    init: function(){
+
+    init: function () {
         create_table("users");
         create_table("session");
+        create_table("notifications");
     },
     get: async function (request, data = {}) {
         switch (request) {
@@ -17,12 +18,22 @@ export const api = {
             case "/get-login": {
                 let users = get_table("users")
                 let user;
-
-                for (const user_id in users) {
-                    if (users[user_id].auth_token != data.user.auth_token) continue;
-                    user = users[user_id];
+                try {
+                    for (const user_id in users) {
+                        if (users[user_id].auth_token != data.user.auth_token) continue; 
+                        user = users[user_id];
+                    }
+                } catch {
+                    console.error("404 - Session not found")
                 }
                 return user || {};
+            }
+            case "/get-notifications": {
+                const notifications = get_table("notifications")
+
+                return notifications.filter(notification =>
+                    notification.user_id == data.user_id
+                );
             }
         }
     },
@@ -37,6 +48,19 @@ export const api = {
                     id: nextId
                 });
                 localStorage.setItem("users", JSON.stringify(users))
+                break;
+            }
+
+            case "/create-notification": {
+                const notifications = get_table("notifications");
+
+                const nextID = notifications.length > 0 ? Math.max(...notifications.map(user => user.id)) + 1 : 1;
+
+                notifications.push({
+                    ...data,
+                    id: nextID
+                });
+                localStorage.setItem("notifications", JSON.stringify(notifications));
                 break;
             }
         }
@@ -75,7 +99,8 @@ export const api = {
                 }
 
                 for (const user_id in users) {
-                    if (users[user_id].email != data.email) continue;
+                    console.log(data.cpf)
+                    if (users[user_id].cpf != data.cpf) continue;
                     if (users[user_id].passwd != data.passwd) continue;
 
                     const num = Math.random()
@@ -115,6 +140,9 @@ export const api = {
                 localStorage.setItem("users", JSON.stringify(updatedUsers));
                 break;
             }
+            case "/delete-session": {
+                localStorage.setItem("session", JSON.stringify([]))
+            }
         }
     }
 }
@@ -129,8 +157,8 @@ function get_table(table_name) {
     }
 }
 
-export function create_table(table_name){
-    if(localStorage.getItem(table_name) === null) {
+export function create_table(table_name) {
+    if (localStorage.getItem(table_name) === null) {
         localStorage.setItem(table_name, JSON.stringify([]))
-    }  
+    }
 }

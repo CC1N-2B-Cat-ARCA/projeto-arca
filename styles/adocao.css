@@ -1,0 +1,331 @@
+/* ==================================
+PAGE
+================================== */
+
+.adoption-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+}
+
+
+/* ==================================
+HEADER
+================================== */
+
+.page-header {
+    padding: var(--space-12) var(--space-16);
+    background: white;
+    border-bottom: 1px solid var(--neutral-200);
+}
+
+.page-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.page-title svg {
+    width: 30px;
+    height: 30px;
+    color: var(--color-green);
+}
+
+.page-title h1 {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+
+/* ==================================
+FILTROS
+================================== */
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+
+    padding: 0 var(--space-16);
+}
+
+.filters select {
+    width: 170px;
+}
+
+
+/* ==================================
+GRID
+================================== */
+
+.animals-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(360px,1fr));
+
+    gap: var(--space-6);
+
+    padding:
+        var(--space-4)
+        var(--space-16)
+        var(--space-12);
+
+}
+
+
+/* ==================================
+CARD
+================================== */
+
+.animal-card {
+
+    background: white;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-xl);
+
+    box-shadow: var(--shadow-sm);
+
+    transition:
+        .2s;
+}
+
+.animal-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow: var(--shadow-md);
+
+}
+
+.animal-image {
+
+    width: 100%;
+
+    height: 210px;
+
+    object-fit: cover;
+
+}
+
+.animal-body {
+
+    padding: var(--space-4);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: var(--space-2);
+
+}
+
+.animal-body h3 {
+
+    font-family: var(--font-heading);
+
+    font-size: 1.4rem;
+
+}
+
+.animal-description {
+
+    color: var(--color-text-muted);
+
+}
+
+
+/* ==================================
+TAGS
+================================== */
+
+.animal-tags {
+
+    display: flex;
+
+    gap: var(--space-2);
+
+    flex-wrap: wrap;
+
+}
+
+.tag {
+
+    background: #e7f2eb;
+
+    color: var(--color-green);
+
+    padding: 6px 16px;
+
+    border-radius: var(--radius-full);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+/* ==================================
+FOOTER
+================================== */
+
+.animal-footer {
+
+    padding: var(--space-4);
+
+    border-top: 1px solid var(--neutral-200);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.status {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: var(--space-2);
+
+    padding: 8px 18px;
+
+    border-radius: var(--radius-full);
+
+    font-size: 14px;
+
+}
+
+.available {
+
+    background: #e7f2eb;
+
+    color: var(--color-green);
+
+}
+
+.processing {
+
+    background: #ececec;
+
+    color: #555;
+
+}
+
+.status svg {
+
+    width: 15px;
+
+    height: 15px;
+
+}
+
+.adopt-button {
+
+    background: #29b45a;
+
+    color: white;
+
+    border-radius: var(--radius-lg);
+
+    padding: 12px 26px;
+
+    font-weight: 700;
+
+    transition:
+        .2s;
+}
+
+.adopt-button:hover {
+
+    transform: translateY(-2px);
+
+    background: #209349;
+
+}
+
+.adopt-button:active {
+
+    transform: scale(.97);
+
+}
+
+
+/* ==================================
+RESPONSIVO
+================================== */
+
+@media(max-width:900px){
+
+    .page-header {
+
+        padding: var(--space-8);
+
+    }
+
+    .page-title h1 {
+
+        font-size: 2.2rem;
+
+    }
+
+    .filters {
+
+        padding: 0 var(--space-8);
+
+    }
+
+    .animals-grid {
+
+        padding:
+            var(--space-4)
+            var(--space-8);
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .page-title h1 {
+
+        font-size: 1.8rem;
+
+    }
+
+    .filters select {
+
+        width: 100%;
+
+    }
+
+    .animals-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .animal-footer {
+
+        flex-direction: column;
+
+        gap: var(--space-3);
+
+    }
+
+    .adopt-button {
+
+        width: 100%;
+
+    }
+
+}
