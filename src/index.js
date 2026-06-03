@@ -2,6 +2,8 @@ import { get_login, set_is_login } from "./components/profile_dropdown.js";
 import { api } from "./core/api.js";
 import { mock_populate } from "./mock.js";
 
+export const BASE_PATH = "/projeto-arca"
+
 api.init();
 document.addEventListener("DOMContentLoaded", async () => {
     let users = await api.get("/get-users")
@@ -88,7 +90,7 @@ if (login_form) {
         const logged = await api.put("/user-login", data);
         if (logged) {
             console.log("Login successful");
-            window.location.href = "../index.html"
+            window.location.href = `${BASE_PATH}/index.html`
         }
     });
 }
@@ -114,7 +116,7 @@ document.getElementById("test").addEventListener("click", async (e) => {
         console.log("login out");
 
         await api.delete("/delete-session");
-        window.location.href = "../index.html";
+        window.location.href = ` ${BASE_PATH}/index.html`;
     }
 });
 
@@ -132,12 +134,12 @@ document.addEventListener("keydown", async (e) => {
 
 const report_btn = document.querySelector(".btn--report")
 report_btn.addEventListener("click", () => {
-    window.location.href = "../views/denuncia.html"
+    window.location.href = `${BASE_PATH}/views/denuncia.html`
 })
 
 const adopt_btn = document.getElementById("adopt-btn");
 if (adopt_btn) {
     adopt_btn.addEventListener("click", () => {
-        window.location.href = "../views/adocao.html"
+        window.location.href = `${BASE_PATH}/views/adocao.html`
     })
 }

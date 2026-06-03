@@ -1,4 +1,5 @@
 import { api } from "../core/api.js";
+import { BASE_PATH } from "../index.js";
 
 export async function set_is_login() {
 
@@ -52,17 +53,17 @@ async function inject_user_dropdown() {
 
   const is_adm = user.role == 'adm' ? true : false;
   const is_ong = user.role == 'ong' ? true : false;
-  const adm_zone = is_adm && state.is_login ? `<a href="../views/adm_dashboard.html" class="user-dropdown__item user-dropdown__item--danger" id="openAdmPanel">
+  const adm_zone = is_adm && state.is_login ? `<a href="${BASE_PATH}/views/adm_dashboard.html" class="user-dropdown__item user-dropdown__item--danger" id="openAdmPanel">
               <i data-lucide="log-in"></i> Zona de Administrador
             </a>` : `<div></div>`
-  const ong_zone = (is_ong || is_adm) && state.is_login ? `<a href="../views/painel_ong.html" class="user-dropdown__item user-dropdown__item--danger" id="openAdmPanel">
+  const ong_zone = (is_ong || is_adm) && state.is_login ? `<a href="${BASE_PATH}/views/painel_ong.html" class="user-dropdown__item user-dropdown__item--danger" id="openAdmPanel">
               <i data-lucide="log-in"></i> Perfil da Ong
             </a>` : '';
   const login_in = state.is_login ? '' : `<a href="#" class="user-dropdown__item user-dropdown__item--danger" id="openLoginModal">
               <i data-lucide="log-in"></i> Entrar / Cadastrar
             </a>`;
   const functionalities = state.is_login ? `<div class="user-dropdown__divider"></div>
-            <a href="../views/perfil.html" class="user-dropdown__item">
+            <a href="${BASE_PATH}/views/perfil.html" class="user-dropdown__item">
               <i data-lucide="heart"></i> Meu Perfil
             </a>
             <a href="#" class="user-dropdown__item">
@@ -76,7 +77,7 @@ async function inject_user_dropdown() {
             ${adm_zone}
             ${ong_zone}
             ${login_in}
-            <a href="../index.html" class="user-dropdown__item user-dropdown__item--danger" id="exit">
+            <a href="${BASE_PATH}/index.html" class="user-dropdown__item user-dropdown__item--danger" id="exit">
               <i data-lucide="log-out"></i> Sair
             </a>`
   div.innerHTML = '';
